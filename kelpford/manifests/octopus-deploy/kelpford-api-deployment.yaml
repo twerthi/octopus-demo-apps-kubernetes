@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kelpford-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: kelpford-api
+  template:
+    metadata:
+      labels:
+        component: kelpford-api
+    spec:
+      containers:
+        - name: kelpford-api
+          image: twerthi/kelpford-api
+          ports:
+            - containerPort: 8080
+              name: http-api
+          env:
+            - name: Deployment__Environment
+              value: "Kubernetes"

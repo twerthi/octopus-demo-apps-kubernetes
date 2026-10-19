@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kelpford-web-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: kelpford-web
+  template:
+    metadata:
+      labels:
+        component: kelpford-web
+    spec:
+      containers:
+        - name: kelpford-web
+          image: twerthi/kelpford-web
+          ports:
+            - containerPort: 8080
+              name: http-web
+          env:
+            - name: Deployment__Environment
+              value: "Kubernetes"
+            - name: Api__BaseUrl
+              value: "http://kelpford-api-cluster-ip:5101"
