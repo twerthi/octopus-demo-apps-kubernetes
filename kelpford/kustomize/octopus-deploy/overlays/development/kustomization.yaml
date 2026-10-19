@@ -24,8 +24,9 @@ patches:
 
 images:
   - name: twerthi/kelpford-web
-    newName: twerthi/kelpford-web
-    newTag: 2026.10.19.6
+    newName: #{Octopus.Action.Package[kelpford-web].PackageId}
+    newTag: #{Octopus.Action.Package[kelpford-web].PackageVersion}
   - name: twerthi/kelpford-api
-    newName: twerthi/kelpford-api
-    newTag: 2026.10.19.5
+    newName: #{Octopus.Action.Package[kelpford-api].PackageId}
+    newTag: #{Octopus.Action.Package[kelpford-api].PackageVersion}
+
