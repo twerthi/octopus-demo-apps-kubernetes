@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/twerthi/octopus-demo-apps-kubernetes.git
     targetRevision: HEAD
-    path: kustomize/argocd/production
+    path: kelpford/kustomize/argocd/overlays/production
   destination:
     server: https://kubernetes.default.svc
     namespace: kelpford-production
